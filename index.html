@@ -10,6 +10,44 @@
 </head>
 
 <body>
+    <div id="layout-element" class="w-full h-screen flex">
+        <div id="info" class="w-1/5 bg-[#08090E] p-4 flex flex-col gap-10 items-center">
+            <div id="head" class="flex flex-col gap-2 items-center">
+                <h1 class="text-2xl w-full text-center text-white font-bold">Formation:</h1>
+                <select name="frm-select" id="frm-select"
+                    class="rounded-md p-2 px-4 text-xl bg-[#A2A2A244] text-white font-semibold">
+                    <option value="4-4-2" class="text-black">4-4-2</option>
+                    <option value="4-3-3" class="text-black">4-3-3</option>
+                </select>
+            </div>
+            <div id="player" class=" w-full flex-grow flex flex-col gap-2 text-white max-w-52">
+                <h2 class="text-2xl font-semibold">player:</h2>
+                <div id="top-player-info" class="flex justify-evenly">
+                    <div id="player-img"
+                        class="size-32 border-2 rounded-lg bg-gradient-to-b from-[#069e47] to-[#00ff6e]">
+                        <img src="https://cdn.sofifa.net/players/209/981/24_120.png" alt=""
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div id="player-top-left-info" class="flex flex-col items-center  justify-center">
+                        <p id="player-pos" class=" text-3xl font-bold w-full text-center">GK</p>
+                        <p id="player-ovr" class=" text-3xl font-bold w-full text-center">99</p>
+                        <div id="player-flag" class="w-full p-1 aspect-[2:3]">
+                            <img src="https://cdn.sofifa.net/flags/ma.png" alt="" class="w-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="field" class="w-1/2 bg-red-400 relative z-10">
+            <div class="z-[-1] absolute top-0 left-0 w-full h-full">
+                <img src="assets/field.jpg" alt="" class="w-full h-full object-cover">
+            </div>
+            <div id="formation-display" class="w-full h-full bg-teal-500 opacity-20">
+            </div>
+        </div>
+        <div id="players" class="w-[30%] bg-gray-400">
+        </div>
+    </div>
 </body>
 
 </html>
