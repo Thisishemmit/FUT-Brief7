@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
-    <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <script src="libs/tailwindcss.js"></script>
@@ -18,13 +17,6 @@
         </div>
         <div class="absolute w-full h-1/2 bg-[#2C2C2C] top-1/2 z-[-1]"></div>
         <div id="container" class="w-full h-full flex p-10 gap-5 relative">
-            <div id="add-player-popup"
-                class="w-[calc(100%_-_2.5rem)] z-40 absolute h-[calc(100%_-_2.5rem)] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-xl gap-5 p-5 backdrop-blur-2xl bg-[#ffffff90] border-2 border-[#ffffff20] flex flex-col justify-center items-center flex-wrap">
-                <div id="preview" class="h-full w-full max-w-lg bg-red-100">
-                    <h1>Preview</h1>
-                </div>
-
-            </div>
             <div id="players-display" class="w-full max-w-lg  h-full flex justify-center items-center">
                 <div class="w-full h-full rounded-xl bg-[#1B1B1B] flex flex-col">
                     <div id="selected-player" class="w-full h-52  pl-10 flex">
@@ -157,110 +149,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="flex justify-center items-center">
-                            <div class="w-fit relative player-card scale-75">
-                                <img src="assets/badge_gold.webp" alt="Badge" class="h-52">
-                                <div id="player-details" class="absolute w-full h-full top-0">
-                                    <div class="flex flex-col w-fit items-center absolute top-12 left-5 -space-y-2">
-                                        <span id="player-ovr" class="text-xl font-black text-[#393218]">99</span>
-                                        <span id="player-pos" class="text-sm font-bold text-[#393218]">GK</span>
-                                    </div>
-                                    <div class="flex flex-col w-24 absolute left-1/2 -translate-x-1/2 top-9">
-                                        <img src="https://cdn.sofifa.net/players/209/981/24_120.png" id="player-img"
-                                            alt="">
-                                    </div>
-                                    <div id="player-skills"
-                                        class="w-28 flex absolute left-1/2 -translate-x-1/2 bottom-8 h-10 justify-between">
-                                        <div class="flex flex-col items-center justify-center -space-y-0.5">
-                                            <span class="text-[8px] font-bold text-[#393218]">DIV</span>
-                                            <span class="text-[11px] font-black text-[#393218]">91</span>
-                                        </div>
-                                        <div class="flex flex-col items-center justify-center -space-y-0.5">
-                                            <span class="text-[8px] font-bold text-[#393218]">HAN</span>
-                                            <span class="text-[11px] font-black text-[#393218]">85</span>
-                                        </div>
-                                        <div class="flex flex-col items-center justify-center -space-y-0.5">
-                                            <span class="text-[8px] font-bold text-[#393218]">KIC</span>
-                                            <span class="text-[11px] font-black text-[#393218]">85</span>
-                                        </div>
-                                        <div class="flex flex-col items-center justify-center -space-y-0.5">
-                                            <span class="text-[8px] font-bold text-[#393218]">POS</span>
-                                            <span class="text-[11px] font-black text-[#393218]">81</span>
-                                        </div>
-                                        <div class="flex flex-col items-center justify-center -space-y-0.5">
-                                            <span class="text-[8px] font-bold text-[#393218]">REF</span>
-                                            <span class="text-[11px] font-black text-[#393218]">93</span>
-                                        </div>
-                                        <div class="flex flex-col items-center justify-center -space-y-0.5">
-                                            <span class="text-[8px] font-bold text-[#393218]">SPD</span>
-                                            <span class="text-[11px] font-black text-[#393218]">95</span>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-1 justify-center items-center">
-                                        <div id="player-country" class="w-4">
-                                            <img src="https://cdn.sofifa.net/flags/ma.png" alt="Country" class="w-full">
-                                        </div>
-                                        <span id="player-club" class="w-4 h-4">
-                                            <img src="https://cdn.sofifa.net/meta/team/7011/30.png" alt="Club"
-                                                class="w-full">
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex justify-center items-center">
-                            <div class="w-fit relative player-card scale-75">
-                                <img src="assets/badge_gold.webp" alt="Badge" class="h-52">
-                                <div id="player-details" class="absolute w-full h-full top-0">
-                                    <div class="flex flex-col w-fit items-center absolute top-12 left-5 -space-y-2">
-                                        <span id="player-ovr" class="text-xl font-black text-[#393218]">99</span>
-                                        <span id="player-pos" class="text-sm font-bold text-[#393218]">GK</span>
-                                    </div>
-                                    <div class="flex flex-col w-24 absolute left-1/2 -translate-x-1/2 top-9">
-                                        <img src="https://cdn.sofifa.net/players/209/981/24_120.png" id="player-img"
-                                            alt="">
-                                    </div>
-                                    <div id="player-skills"
-                                        class="w-28 flex absolute left-1/2 -translate-x-1/2 bottom-8 h-10 justify-between">
-                                        <div class="flex flex-col items-center justify-center -space-y-0.5">
-                                            <span class="text-[8px] font-bold text-[#393218]">DIV</span>
-                                            <span class="text-[11px] font-black text-[#393218]">91</span>
-                                        </div>
-                                        <div class="flex flex-col items-center justify-center -space-y-0.5">
-                                            <span class="text-[8px] font-bold text-[#393218]">HAN</span>
-                                            <span class="text-[11px] font-black text-[#393218]">85</span>
-                                        </div>
-                                        <div class="flex flex-col items-center justify-center -space-y-0.5">
-                                            <span class="text-[8px] font-bold text-[#393218]">KIC</span>
-                                            <span class="text-[11px] font-black text-[#393218]">85</span>
-                                        </div>
-                                        <div class="flex flex-col items-center justify-center -space-y-0.5">
-                                            <span class="text-[8px] font-bold text-[#393218]">POS</span>
-                                            <span class="text-[11px] font-black text-[#393218]">81</span>
-                                        </div>
-                                        <div class="flex flex-col items-center justify-center -space-y-0.5">
-                                            <span class="text-[8px] font-bold text-[#393218]">REF</span>
-                                            <span class="text-[11px] font-black text-[#393218]">93</span>
-                                        </div>
-                                        <div class="flex flex-col items-center justify-center -space-y-0.5">
-                                            <span class="text-[8px] font-bold text-[#393218]">SPD</span>
-                                            <span class="text-[11px] font-black text-[#393218]">95</span>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-1 justify-center items-center">
-                                        <div id="player-country" class="w-4">
-                                            <img src="https://cdn.sofifa.net/flags/ma.png" alt="Country" class="w-full">
-                                        </div>
-                                        <span id="player-club" class="w-4 h-4">
-                                            <img src="https://cdn.sofifa.net/meta/team/7011/30.png" alt="Club"
-                                                class="w-full">
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="flex justify-center items-center">
                             <div class="w-fit relative player-card scale-75">
                                 <img src="assets/badge_gold.webp" alt="Badge" class="h-52">
@@ -429,7 +318,5 @@
         </div>
     </div>
 </body>
-
-</html>
 
 </html>
