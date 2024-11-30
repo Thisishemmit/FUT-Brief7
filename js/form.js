@@ -91,12 +91,12 @@ document.addEventListener("DOMContentLoaded", () => {
     playerForm.addEventListener("submit", (e) => {
         e.preventDefault();
         if (validatePlayerForm()) {
-            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             const playerData = createPlayerObject(); //needs to be added to the local storage
-            console.warn("Player data", playerData);
-            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+            const players = JSON.parse(localStorage.getItem("players")) || [];
+            players.push(playerData);
+            localStorage.setItem("players", JSON.stringify(players));
+
             playerForm.reset();
             resetPreview();
         }
