@@ -90,8 +90,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     playerForm.addEventListener("submit", (e) => {
         e.preventDefault();
-        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            // mazal mamkhdomash
         if (validatePlayerForm()) {
             // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -234,4 +232,104 @@ function createPlayerObject() {
     };
 }
 
+function validatePlayerForm() {
+    const firstName = document.getElementById("first-name").value;
+    const lastName = document.getElementById("last-name").value;
+    const position = document.getElementById("position-select").value;
+    const overallRating = document.getElementById("overall-rating").value;
+    const playerImage = document.getElementById("player-image").value;
+    const country = document.getElementById("country-image").value;
+    const club = document.getElementById("club-image").value;
+    const countryName = document.getElementById("country-name").value;
+    const clubName = document.getElementById("club-name").value;
+    let skills = [];
+    if (position) {
+        skills = document.querySelectorAll(".skill-input");
+    }
+    console.log(skills);
+
+    if (!firstName) {
+        document.getElementById("first-name").classList.add("border-red-500");
+    } else {
+        document.getElementById("first-name").classList.remove("border-red-500");
+    }
+
+    if (!lastName) {
+        document.getElementById("last-name").classList.add("border-red-500");
+    } else {
+        document.getElementById("last-name").classList.remove("border-red-500");
+    }
+
+    if (!position) {
+        document.getElementById("position-select").classList.add("border-red-500");
+    } else {
+        document
+            .getElementById("position-select")
+            .classList.remove("border-red-500");
+    }
+
+    if (!overallRating) {
+        document.getElementById("overall-rating").classList.add("border-red-500");
+    } else {
+        document
+            .getElementById("overall-rating")
+            .classList.remove("border-red-500");
+    }
+
+    if (!playerImage) {
+        document.getElementById("player-image").classList.add("border-red-500");
+    } else {
+        document.getElementById("player-image").classList.remove("border-red-500");
+    }
+
+    if (!country) {
+        document.getElementById("country-image").classList.add("border-red-500");
+    } else {
+        document.getElementById("country-image").classList.remove("border-red-500");
+    }
+
+    if (!club) {
+        document.getElementById("club-image").classList.add("border-red-500");
+    } else {
+        document.getElementById("club-image").classList.remove("border-red-500");
+    }
+
+    if (!countryName) {
+        document.getElementById("country-name").classList.add("border-red-500");
+    } else {
+        document.getElementById("country-name").classList.remove("border-red-500");
+    }
+
+    if (!clubName) {
+        document.getElementById("club-name").classList.add("border-red-500");
+    } else {
+        document.getElementById("club-name").classList.remove("border-red-500");
+    }
+
+    let validSkills = true;
+    console.log(skills);
+    if (skills.length > 0) {
+        skills.forEach((skill) => {
+            if (!skill.value) {
+                skill.classList.add("border-red-500");
+                validSkills = false;
+            } else {
+                skill.classList.remove("border-red-500");
+            }
+        });
+    }
+
+    return (
+        firstName &&
+        lastName &&
+        position &&
+        overallRating &&
+        playerImage &&
+        country &&
+        club &&
+        countryName &&
+        clubName &&
+        validSkills
+    );
+}
 
