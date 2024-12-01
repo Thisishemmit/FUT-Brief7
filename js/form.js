@@ -70,14 +70,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // get popup controliing
-    const addPlayerButton = document.querySelector("#add-player button"); // btn for showing popup
     const addPlayerPopup = document.getElementById("add-player-popup");
     const cancelButton = addPlayerPopup.querySelector('button[type="button"]'); // btn for hiding popup
-
-    addPlayerButton.addEventListener("click", () => {
-        addPlayerPopup.classList.remove("hidden");
-    });
-
     cancelButton.addEventListener("click", () => {
         addPlayerPopup.classList.add("hidden");
         document.querySelector("#add-player-form form").reset();

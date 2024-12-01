@@ -1,4 +1,3 @@
- 
 let players = [];
 
 async function loadPlayers() {
@@ -18,13 +17,13 @@ async function loadPlayers() {
 
 function displayPlayers() {
     const playersContainer = document.getElementById('players');
-    const config = { sm: { w: "80px", scale: 0.537 }, md: { w: "110px", scale: 0.738 }, lg: { w: "149px", scale: 1 } };
+    const playerListCardConfig = { sm: { w: "80px", scale: 0.537 }, md: { w: "110px", scale: 0.738 }, lg: { w: "149px", scale: 1 }, class: "player-card" };
     
     playersContainer.innerHTML = '';
     
     playersContainer.innerHTML = `
         <div class="w-[80px] md:w-[110px] lg:w-[149px] aspect-[149/208]">
-            <div id="add-player" class="w-full h-full relative player-card">
+            <div id="add-player-to-list" class="w-full h-full relative player-card cursor-pointer">
                 <button class="w-1/2 aspect-square absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#3C3C3C] border-2 border-[#ffffff10] rounded-full text-white flex justify-center items-center hover:bg-[#4C4C4C] transition-colors">
                     <span class="material-symbols-outlined text-3xl">
                         add
@@ -33,9 +32,17 @@ function displayPlayers() {
             </div>
         </div>
     `;
+
+    // Add event listener after creating the button
+    const addPlayerButton = document.querySelector("#add-player-to-list");
+    const addPlayerPopup = document.getElementById("add-player-popup");
     
+    addPlayerButton.addEventListener("click", () => {
+        addPlayerPopup.classList.remove("hidden");
+    });
+
     players.forEach(player => {
-        playersContainer.innerHTML += createPlayerCard(widths, player);
+        playersContainer.appendChild(createPlayerCard(playerListCardConfig, false, player));
     });
 }
 
