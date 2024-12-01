@@ -16,7 +16,9 @@ for (let i = 0; i < 11; i++) {
     "flex",
     "flex-col",
     "justify-center",
-    "items-center"
+    "items-center",
+    'duration-300',
+    'ease-in-out'
   );
   const cardCallback = () => {
     console.log("add player to card id", i);
