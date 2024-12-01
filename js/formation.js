@@ -14,10 +14,10 @@ const formations = [
         defense: 4,
         goalkeeper: 1,
         prototype: {
-            forward: [{ pos: 'st', x: 35, y: 30 }, { pos: 'st', x: 65, y: 30 }],
-            midfield: [{ pos: 'cm', x: 15, y: 45 }, { pos: 'cm', x: 35, y: 50 }, { pos: 'cm', x: 65, y: 50 }, { pos: 'cm', x: 85, y: 45 }],
-            defense: [{ pos: 'cb', x: 20, y: 70 }, { pos: 'cb', x: 40, y: 75 }, { pos: 'cb', x: 60, y: 75 }, { pos: 'cb', x: 80, y: 70 }],
-            goalkeeper: [{ pos: 'gk', x: 50, y: 95 }]
+            forward: [{ pos: 'ST', x: 35, y: 30 }, { pos: 'ST', x: 65, y: 30 }],
+            midfield: [{ pos: 'LM', x: 15, y: 45 }, { pos: 'CM', x: 35, y: 50 }, { pos: 'CM', x: 65, y: 50 }, { pos: 'RM', x: 85, y: 45 }],
+            defense: [{ pos: 'LB', x: 20, y: 70 }, { pos: 'CB', x: 40, y: 75 }, { pos: 'CB', x: 60, y: 75 }, { pos: 'RB', x: 80, y: 70 }],
+            goalkeeper: [{ pos: 'GK', x: 50, y: 95 }]
         }
     },
     {
@@ -27,10 +27,10 @@ const formations = [
         defense: 4,
         goalkeeper: 1,
         prototype: {
-            forward: [{ pos: 'st', x: 20, y: 30 }, { pos: 'st', x: 50, y: 25 }, { pos: 'st', x: 80, y: 30 }],
-            midfield: [{ pos: 'cm', x: 30, y: 55 }, { pos: 'cm', x: 50, y: 50 }, { pos: 'cm', x: 70, y: 55 }],
-            defense: [{ pos: 'cb', x: 20, y: 70 }, { pos: 'cb', x: 40, y: 75 }, { pos: 'cb', x: 60, y: 75 }, { pos: 'cb', x: 80, y: 70 }],
-            goalkeeper: [{ pos: 'gk', x: 50, y: 95 }]
+            forward: [{ pos: 'LW', x: 20, y: 30 }, { pos: 'st', x: 50, y: 25 }, { pos: 'RW', x: 80, y: 30 }],
+            midfield: [{ pos: 'CM', x: 30, y: 55 }, { pos: 'CM', x: 50, y: 50 }, { pos: 'CM', x: 70, y: 55 }],
+            defense: [{ pos: 'LB', x: 20, y: 70 }, { pos: 'CB', x: 40, y: 75 }, { pos: 'CB', x: 60, y: 75 }, { pos: 'RB', x: 80, y: 70 }],
+            goalkeeper: [{ pos: 'GK', x: 50, y: 95 }]
         }
     },
     {
