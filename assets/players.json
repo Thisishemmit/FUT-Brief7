@@ -1,0 +1,498 @@
+{
+    "players": [
+      {
+        "id": 0,
+        "name": "Lionel Messi",
+        "photo": "https://cdn.sofifa.net/players/158/023/25_120.png",
+        "position": "RW",
+        "nationality": "Argentina",
+        "flag": "https://cdn.sofifa.net/flags/ar.png",
+        "club": "Inter Miami",
+        "logo": "https://cdn.sofifa.net/meta/team/239235/120.png",
+        "rating": 93,
+        "skills": [
+          { "name": "pace", "value": 85 },
+          { "name": "shooting", "value": 92 },
+          { "name": "passing", "value": 91 },
+          { "name": "dribbling", "value": 95 },
+          { "name": "defending", "value": 35 },
+          { "name": "physical", "value": 65 }
+        ]
+      },
+      {
+        "id": 1,
+        "name": "Cristiano Ronaldo",
+        "photo": "https://cdn.sofifa.net/players/020/801/25_120.png",
+        "position": "ST",
+        "nationality": "Portugal",
+        "flag": "https://cdn.sofifa.net/flags/pt.png",
+        "club": "Al Nassr",
+        "logo": "https://cdn.sofifa.net/meta/team/2506/120.png",
+        "rating": 91,
+        "skills": [
+          { "name": "pace", "value": 84 },
+          { "name": "shooting", "value": 94 },
+          { "name": "passing", "value": 82 },
+          { "name": "dribbling", "value": 87 },
+          { "name": "defending", "value": 34 },
+          { "name": "physical", "value": 77 }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Kevin De Bruyne",
+        "photo": "https://cdn.sofifa.net/players/192/985/25_120.png",
+        "position": "CM",
+        "nationality": "Belgium",
+        "flag": "https://cdn.sofifa.net/flags/be.png",
+        "club": "Manchester City",
+        "logo": "https://cdn.sofifa.net/players/239/085/25_120.png",
+        "rating": 91,
+        "skills": [
+          { "name": "pace", "value": 74 },
+          { "name": "shooting", "value": 86 },
+          { "name": "passing", "value": 93 },
+          { "name": "dribbling", "value": 88 },
+          { "name": "defending", "value": 64 },
+          { "name": "physical", "value": 78 }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Kylian Mbappé",
+        "photo": "https://cdn.sofifa.net/players/231/747/25_120.png",
+        "position": "ST",
+        "nationality": "France",
+        "flag": "https://cdn.sofifa.net/flags/fr.png",
+        "club": "Real Madrid",
+        "logo": "https://cdn.sofifa.net/meta/team/3468/120.png",
+        "rating": 92,
+        "skills": [
+          { "name": "pace", "value": 97 },
+          { "name": "shooting", "value": 89 },
+          { "name": "passing", "value": 80 },
+          { "name": "dribbling", "value": 92 },
+          { "name": "defending", "value": 39 },
+          { "name": "physical", "value": 77 }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Virgil van Dijk",
+        "photo": "https://cdn.sofifa.net/players/203/376/25_120.png",
+        "position": "CB",
+        "nationality": "Netherlands",
+        "flag": "https://cdn.sofifa.net/flags/nl.png",
+        "club": "Liverpool",
+        "logo": "https://cdn.sofifa.net/meta/team/8/120.png",
+        "rating": 90,
+        "skills": [
+          { "name": "pace", "value": 75 },
+          { "name": "shooting", "value": 60 },
+          { "name": "passing", "value": 70 },
+          { "name": "dribbling", "value": 72 },
+          { "name": "defending", "value": 92 },
+          { "name": "physical", "value": 86 }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Antonio Rudiger",
+        "photo": "https://cdn.sofifa.net/players/205/452/25_120.png",
+        "position": "CB",
+        "nationality": "Germany",
+        "flag": "https://cdn.sofifa.net/flags/de.png",
+        "club": "Real Madrid",
+        "logo": "https://cdn.sofifa.net/meta/team/3468/120.png",
+        "rating": 88,
+        "skills": [
+          { "name": "pace", "value": 82 },
+          { "name": "shooting", "value": 55 },
+          { "name": "passing", "value": 73 },
+          { "name": "dribbling", "value": 70 },
+          { "name": "defending", "value": 86 },
+          { "name": "physical", "value": 86 }
+        ]
+      },
+      {
+        "id": 6,
+        "name": "Neymar Jr",
+        "photo": "https://cdn.sofifa.net/players/190/871/25_120.png",
+        "position": "LW",
+        "nationality": "Brazil",
+        "flag": "https://cdn.sofifa.net/flags/br.png",
+        "club": "Al-Hilal",
+        "logo": "https://cdn.sofifa.net/meta/team/7011/120.png",
+        "rating": 90,
+        "skills": [
+          { "name": "pace", "value": 91 },
+          { "name": "shooting", "value": 83 },
+          { "name": "passing", "value": 86 },
+          { "name": "dribbling", "value": 94 },
+          { "name": "defending", "value": 37 },
+          { "name": "physical", "value": 61 }
+        ]
+      },
+      {
+        "id": 7,
+        "name": "Mohamed Salah",
+        "photo": "https://cdn.sofifa.net/players/192/985/25_120.png",
+        "position": "RW",
+        "nationality": "Egypt",
+        "flag": "https://cdn.sofifa.net/flags/eg.png",
+        "club": "Liverpool",
+        "logo": "https://cdn.sofifa.net/meta/team/8/120.png",
+        "rating": 89,
+        "skills": [
+          { "name": "pace", "value": 93 },
+          { "name": "shooting", "value": 87 },
+          { "name": "passing", "value": 81 },
+          { "name": "dribbling", "value": 90 },
+          { "name": "defending", "value": 45 },
+          { "name": "physical", "value": 75 }
+        ]
+      },
+      {
+        "id": 8,
+        "name": "Joshua Kimmich",
+        "photo": "https://cdn.sofifa.net/players/212/622/25_120.png",
+        "position": "CM",
+        "nationality": "Germany",
+        "flag": "https://cdn.sofifa.net/flags/de.png",
+        "club": "Bayern Munich",
+        "logo": "https://cdn.sofifa.net/meta/team/503/120.png",
+        "rating": 89,
+        "skills": [
+          { "name": "pace", "value": 70 },
+          { "name": "shooting", "value": 75 },
+          { "name": "passing", "value": 88 },
+          { "name": "dribbling", "value": 84 },
+          { "name": "defending", "value": 84 },
+          { "name": "physical", "value": 81 }
+        ]
+      },
+      {
+        "id": 9,
+        "name": "Jan Oblak",
+        "photo": "https://cdn.sofifa.net/players/200/389/25_120.png",
+        "position": "GK",
+        "nationality": "Slovenia",
+        "flag": "https://cdn.sofifa.net/flags/si.png",
+        "club": "Atletico Madrid",
+        "logo": "https://cdn.sofifa.net/meta/team/7980/120.png",
+        "rating": 91,
+        "skills": [
+          { "name": "diving", "value": 89 },
+          { "name": "handling", "value": 90 },
+          { "name": "kicking", "value": 78 },
+          { "name": "reflexes", "value": 92 },
+          { "name": "speed", "value": 50 },
+          { "name": "positioning", "value": 88 }
+        ]
+      },
+      {
+        "id": 10,
+        "name": "Luka Modrić",
+        "photo": "https://cdn.sofifa.net/players/177/003/25_120.png",
+        "position": "CM",
+        "nationality": "Croatia",
+        "flag": "https://cdn.sofifa.net/flags/hr.png",
+        "club": "Real Madrid",
+        "logo": "https://cdn.sofifa.net/meta/team/3468/120.png",
+        "rating": 88,
+        "skills": [
+          { "name": "pace", "value": 74 },
+          { "name": "shooting", "value": 78 },
+          { "name": "passing", "value": 89 },
+          { "name": "dribbling", "value": 90 },
+          { "name": "defending", "value": 72 },
+          { "name": "physical", "value": 65 }
+        ]
+      },
+      {
+        "id": 11,
+        "name": "Vinicius Junior",
+        "photo": "https://cdn.sofifa.net/players/238/794/25_120.png",
+        "position": "LW",
+        "nationality": "Brazil",
+        "flag": "https://cdn.sofifa.net/flags/br.png",
+        "club": "Real Madrid",
+        "logo": "https://cdn.sofifa.net/meta/team/3468/120.png",
+        "rating": 89,
+        "skills": [
+          { "name": "pace", "value": 91 },
+          { "name": "shooting", "value": 88 },
+          { "name": "passing", "value": 85 },
+          { "name": "dribbling", "value": 94 },
+          { "name": "defending", "value": 39 },
+          { "name": "physical", "value": 61 }
+        ]
+      },
+      {
+        "id": 12,
+        "name": "Brahim Diáz",
+        "photo": "https://cdn.sofifa.net/players/231/410/25_120.png",
+        "position": "LW",
+        "nationality": "Morocco",
+        "flag": "https://cdn.sofifa.net/flags/ma.png",
+        "club": "Real Madrid",
+        "logo": "https://cdn.sofifa.net/meta/team/3468/120.png",
+        "rating": 82,
+        "skills": [
+          { "name": "pace", "value": 85 },
+          { "name": "shooting", "value": 74 },
+          { "name": "passing", "value": 78 },
+          { "name": "dribbling", "value": 85 },
+          { "name": "defending", "value": 31 },
+          { "name": "physical", "value": 56 }
+        ]
+      },
+      {
+        "id": 13,
+        "name": "Karim Benzema",
+        "photo": "https://cdn.sofifa.net/players/165/153/25_120.png",
+        "position": "ST",
+        "nationality": "France",
+        "flag": "https://cdn.sofifa.net/flags/fr.png",
+        "club": "Al-Ittihad",
+        "logo" :"https://cdn.sofifa.net/meta/team/476/120.png",
+        "rating": 90,
+        "skills": [
+          { "name": "pace", "value": 77 },
+          { "name": "shooting", "value": 90 },
+          { "name": "passing", "value": 83 },
+          { "name": "dribbling", "value": 88 },
+          { "name": "defending", "value": 40 },
+          { "name": "physical", "value": 78 }
+        ]
+      },
+      {
+        "id": 14,
+        "name": "Erling Haaland",
+        "photo": "https://cdn.sofifa.net/players/239/085/25_120.png",
+        "position": "ST",
+        "nationality": "Norway",
+        "flag": "https://cdn.sofifa.net/flags/no.png",
+        "club": "Manchester City",
+        "logo": "https://cdn.sofifa.net/players/239/085/25_120.png",
+        "rating": 91,
+        "skills": [
+          { "name": "pace", "value": 89 },
+          { "name": "shooting", "value": 94 },
+          { "name": "passing", "value": 65 },
+          { "name": "dribbling", "value": 80 },
+          { "name": "defending", "value": 45 },
+          { "name": "physical", "value": 88 }
+        ]
+      },
+      {
+        "id": 15,
+        "name": "N'Golo Kanté",
+        "photo": "https://cdn.sofifa.net/players/215/914/25_120.png",
+        "position": "CDM",
+        "nationality": "France",
+        "flag": "https://cdn.sofifa.net/flags/fr.png",
+        "club": "Al-Ittihad",
+        "logo": "https://cdn.sofifa.net/meta/team/476/120.png",
+        "rating": 87,
+        "skills": [
+          { "name": "pace", "value": 77 },
+          { "name": "shooting", "value": 66 },
+          { "name": "passing", "value": 75 },
+          { "name": "dribbling", "value": 82 },
+          { "name": "defending", "value": 88 },
+          { "name": "physical", "value": 82 }
+        ]
+      },
+      {
+        "id": 16,
+        "name": "Alphonso Davies",
+        "photo": "https://cdn.sofifa.net/players/234/396/25_120.png",
+        "position": "LB",
+        "nationality": "Canada",
+        "flag": "https://cdn.sofifa.net/flags/ca.png",
+        "club": "Bayern Munich",
+        "logo": "https://cdn.sofifa.net/meta/team/503/120.png",
+        "rating": 84,
+        "skills": [
+          { "name": "pace", "value": 96 },
+          { "name": "shooting", "value": 68 },
+          { "name": "passing", "value": 77 },
+          { "name": "dribbling", "value": 82 },
+          { "name": "defending", "value": 76 },
+          { "name": "physical", "value": 77 }
+        ]
+      },
+      {
+        "id": 17,
+        "name": "Yassine Bounou",
+        "photo": "https://cdn.sofifa.net/players/209/981/25_120.png",
+        "position": "GK",
+        "nationality": "Morocco",
+        "flag": "https://cdn.sofifa.net/flags/ma.png",
+        "club": "Al-Hilal",
+        "logo": "https://cdn.sofifa.net/meta/team/7011/120.png",
+        "rating": 84,
+        "skills": [
+          { "name": "diving", "value": 81 },
+          { "name": "handling", "value": 82 },
+          { "name": "kicking", "value": 77 },
+          { "name": "reflexes", "value": 86 },
+          { "name": "speed", "value": 38 },
+          { "name": "positioning", "value": 83 }
+        ]
+      },
+      {
+        "id": 18,
+        "name": "Bruno Fernandes",
+        "photo": "https://cdn.sofifa.net/players/212/198/25_120.png",
+        "position": "CM",
+        "nationality": "Portugal",
+        "flag": "https://cdn.sofifa.net/flags/pt.png",
+        "club": "Manchester United",
+        "logo": "https://cdn.sofifa.net/meta/team/14/120.png",
+        "rating": 88,
+        "skills": [
+          { "name": "pace", "value": 75 },
+          { "name": "shooting", "value": 85 },
+          { "name": "passing", "value": 89 },
+          { "name": "dribbling", "value": 84 },
+          { "name": "defending", "value": 69 },
+          { "name": "physical", "value": 77 }
+        ]
+      },
+      {
+        "id": 19,
+        "name": "Jadon Sancho",
+        "photo": "https://cdn.sofifa.net/players/233/049/25_120.png",
+        "position": "LW",
+        "nationality": "England",
+        "flag": "https://cdn.sofifa.net/flags/gb-eng.png",
+        "club": "Manchester United",
+        "logo": "https://cdn.sofifa.net/meta/team/14/120.png",
+        "rating": 84,
+        "skills": [
+          { "name": "pace", "value": 85 },
+          { "name": "shooting", "value": 74 },
+          { "name": "passing", "value": 78 },
+          { "name": "dribbling", "value": 88 },
+          { "name": "defending", "value": 34 },
+          { "name": "physical", "value": 63 }
+        ]
+      },
+      {
+        "id": 20,
+        "name": "Trent Alexander-Arnold",
+        "photo": "https://cdn.sofifa.net/players/231/281/25_120.png",
+        "position": "RB",
+        "nationality": "England",
+        "flag": "https://cdn.sofifa.net/flags/gb-eng.png",
+        "club": "Liverpool",
+        "rating": 87,
+        "skills": [
+          { "name": "pace", "value": 76 },
+          { "name": "shooting", "value": 66 },
+          { "name": "passing", "value": 89 },
+          { "name": "dribbling", "value": 80 },
+          { "name": "defending", "value": 79 },
+          { "name": "physical", "value": 71 }
+        ]
+      },
+      {
+        "id": 21,
+        "name": "Achraf Hakimi",
+        "photo": "https://cdn.sofifa.net/players/235/212/25_120.png",
+        "position": "RB",
+        "nationality": "Morocco",
+        "flag": "https://cdn.sofifa.net/flags/ma.png",
+        "club": "Paris Saint-Germain",
+        "logo": "https://cdn.sofifa.net/meta/team/591/120.png",
+        "rating": 84,
+        "skills": [
+          { "name": "pace", "value": 91 },
+          { "name": "shooting", "value": 76 },
+          { "name": "passing", "value": 80 },
+          { "name": "dribbling", "value": 80 },
+          { "name": "defending", "value": 75 },
+          { "name": "physical", "value": 78 }
+        ]
+      },
+      {
+        "id": 22,
+        "name": "Youssef En-Nesyri",
+        "photo": "https://cdn.sofifa.net/players/235/410/25_120.png",
+        "position": "ST",
+        "nationality": "Morocco",
+        "flag": "https://cdn.sofifa.net/flags/ma.png",
+        "club": "Fenerbahçe",
+        "logo": "https://cdn.sofifa.net/meta/team/88/120.png",
+        "rating": 83,
+        "skills": [
+          { "name": "pace", "value": 82 },
+          { "name": "shooting", "value": 82 },
+          { "name": "passing", "value": 63 },
+          { "name": "dribbling", "value": 77 },
+          { "name": "defending", "value": 36 },
+          { "name": "physical", "value": 80 }
+        ]
+      },
+      {
+        "id": 23,
+        "name": "Noussair Mazraoui",
+        "photo": "https://cdn.sofifa.net/players/236/401/25_120.png",
+        "position": "LB",
+        "nationality": "Morocco",
+        "flag": "https://cdn.sofifa.net/flags/ma.png",
+        "club": "Manchester United",
+        "logo": "https://cdn.sofifa.net/meta/team/14/120.png",
+        "rating": 81,
+        "skills": [
+          { "name": "pace", "value": 78 },
+          { "name": "shooting", "value": 66 },
+          { "name": "passing", "value": 77 },
+          { "name": "dribbling", "value": 83 },
+          { "name": "defending", "value": 77 },
+          { "name": "physical", "value": 71 }
+        ]
+      },
+      {
+        "id": 24,
+        "name": "Ismael Saibari",
+        "photo": "https://cdn.sofifa.net/players/259/480/25_120.png",
+        "position": "CM",
+        "nationality": "Morocco",
+        "flag": "https://cdn.sofifa.net/flags/ma.png",
+        "club": "PSV",
+        "logo": "https://cdn.sofifa.net/meta/team/682/120.png",
+        "rating": 83,
+        "skills": [
+          { "name": "pace", "value": 89 },
+          { "name": "shooting", "value": 78 },
+          { "name": "passing", "value": 80 },
+          { "name": "dribbling", "value": 86 },
+          { "name": "defending", "value": 55 },
+          { "name": "physical", "value": 84 }
+        ]
+      },
+      {
+        "id": 25,
+        "name": "Gianluigi Donnarumma",
+        "photo": "https://cdn.sofifa.net/players/230/621/25_120.png",
+        "position": "GK",
+        "nationality": "Italy",
+        "flag": "https://cdn.sofifa.net/flags/it.png",
+        "club": "Paris Saint-Germain",
+        "logo": "https://cdn.sofifa.net/meta/team/591/120.png",
+        "rating": 89,
+        "skills": [
+          { "name": "diving", "value": 88 },
+          { "name": "handling", "value": 84 },
+          { "name": "kicking", "value": 75 },
+          { "name": "reflexes", "value": 90 },
+          { "name": "speed", "value": 50 },
+          { "name": "positioning", "value": 85 }
+        ]
+      }
+    ]
+  }
+  
