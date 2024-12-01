@@ -253,7 +253,7 @@
                     <div id="players"
                         class="flex flex-row flex-wrap flex-grow justify-center items-start gap-4 p-4 lg:overflow-y-auto">
                         <div class="w-[80px] md:w-[110px] lg:w-[149px] aspect-[149/208]">
-                            <div id="add-player" class="w-full h-full relative player-card">
+                            <div id="add-player-to-list" class="w-full h-full relative player-card">
                                 <button
                                     class="w-1/2 aspect-square absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#3C3C3C] border-2 border-[#ffffff10] rounded-full text-white flex justify-center items-center hover:bg-[#4C4C4C] transition-colors">
                                     <span class="material-symbols-outlined text-3xl">
@@ -266,10 +266,10 @@
                 </div>
             </div>
             <div id="pitch-display"
-                class="w-full h-[80vh] lg:h-[calc(100vh-5rem)] flex-grow flex justify-center items-center">
+                class="w-full h-[80vh] lg:h-[calc(100vh-5rem)] flex-grow flex justify-center items-center relative">
                 <div
                     class="w-full h-full rounded-xl backdrop-blur-2xl bg-[#ffffff10] border-2 border-[#ffffff10] relative">
-                    <div id="pitch-background" class="w-full h-full bg-cover bg-[center_20%] bg-no-repeat">
+                    <div id="pitch-background" class="absolute w-full top-0 left-0 h-full bg-cover bg-[center_20%] bg-no-repeat">
                         <div id="pitch-edges"
                             class="w-full h-full border-2 border-[#ffffff] absolute top-0 left-0 rounded-xl"></div>
                         <div id="pitch-center-circle"
@@ -304,12 +304,15 @@
                             </div>
                         </div>
                     </div>
+                    <div id="pitch-cards-container" class="absolute top-0 left-0 w-full h-full"></div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="js/formation.js"></script>
     <script src="js/card.js"></script>
     <script src="js/player.js"></script>
+    <script src="js/field.js"></script>
     <script src="js/form.js"></script>
 </body>
 
