@@ -6,17 +6,17 @@ const positionSkills = {
         { id: "DIV", name: "diving" },
         { id: "HAN", name: "handling" },
         { id: "KIC", name: "kicking" },
-        { id: "POS", name: "positioning" },
         { id: "REF", name: "reflexes" },
         { id: "SPD", name: "speed" },
+        { id: "POS", name: "positioning" },
     ],
     ANY: [
         { id: "PAC", name: "pace" },
         { id: "SHO", name: "shooting" },
-        { id: "DRI", name: "dribbling" },
         { id: "PAS", name: "passing" },
+        { id: "DRI", name: "dribbling" },
+        { id: "DEF", name: "defending" },
         { id: "PHY", name: "physical" },
-        { id: "FIN", name: "finishing" },
     ],
 };
 
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
     playerForm.addEventListener("submit", (e) => {
         e.preventDefault();
         if (validatePlayerForm()) {
-            const playerData = createPlayerObject(); //needs to be added to the local storage
+            const playerData = createPlayerObjectFromForm(); //needs to be added to the local storage
 
             const players = JSON.parse(localStorage.getItem("players")) || [];
             players.push(playerData);
@@ -190,47 +190,7 @@ function updatePreviewName(lastName) {
     }
 }
 
-function createPlayerObject() {
-    const firstName = document.getElementById("first-name").value.trim();
-    const lastName = document.getElementById("last-name").value.trim();
-    const position = document.getElementById("position-select").value;
 
-    const skillInputs = document.querySelectorAll('#skills-inputs input');
-    const skills = [];
-    skillInputs.forEach((input) => {
-        const skillId = input.dataset.skill;
-
-        const skillName = positionSkills.GK.concat(positionSkills.ANY).find(
-            (skill) => skill.id === skillId
-        ).name;
-
-        const skill = {
-            id: skillId,
-            name: skillName,
-            value: parseInt(input.value) || 0,
-        }
-
-        skills.push(skill);
-    });
-
-
-    const overallRating = document.getElementById("overall-rating").value;
-
-    return {
-        id: Date.now(),
-        firstName,
-        lastName,
-        fullName: `${firstName} ${lastName}`,
-        position,
-        skills,
-        overall: overallRating,
-        nationality: selectedCountryName,
-        flag: document.getElementById("preview-country").querySelector("img").src,
-        club: selectedClubName,
-        logo: document.getElementById("preview-club").querySelector("img").src,
-        photo: document.getElementById("preview-img").src || null,
-    };
-}
 
 function validatePlayerForm() {
     const firstName = document.getElementById("first-name").value;
