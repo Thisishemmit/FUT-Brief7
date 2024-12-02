@@ -83,6 +83,7 @@ function updateCardsPosition(formationId) {
                 `;
                 card.innerHTML += cardPosition;
                 card.querySelector('.card-prototype-position span').innerText = `${position.pos}`;
+                fieldPlayers = fieldPlayers.filter(fp => fp.cardId !== index);
             });
         }
     });
