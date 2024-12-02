@@ -6,7 +6,6 @@ const fieldPlayerCardConfig = {
 };
 
 function createEmptyFieldCard() {
-
   const cardContainer = document.createElement("div");
   cardContainer.classList.add(
     "absolute",
@@ -17,8 +16,8 @@ function createEmptyFieldCard() {
     "flex-col",
     "justify-center",
     "items-center",
-    'duration-300',
-    'ease-in-out'
+    "duration-300",
+    "ease-in-out"
   );
 
   cardContainer.appendChild(
@@ -36,8 +35,8 @@ function createEmptyFieldCard() {
 let container = document.getElementById("pitch-cards-container");
 for (let i = 0; i < 11; i++) {
   container.appendChild(createEmptyFieldCard());
-
 }
-updateCardsPosition("4-3-3");
 
-
+const savedFormation = localStorage.getItem("currentFormation") || "4-3-3";
+document.getElementById("formation-select").value = savedFormation;
+updateCardsPosition(savedFormation);

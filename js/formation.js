@@ -1,5 +1,6 @@
 let clickedFieldCard = null;
-let fieldPlayers = [];
+let fieldPlayers = JSON.parse(localStorage.getItem('fieldPlayers')) || [];
+let currentFormation = localStorage.getItem('currentFormation') || '4-3-3';
 const formations = [
     {
         formation: "4-4-2",
@@ -51,9 +52,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-let currentFormation;
 function updateCardsPosition(formationId) {
-    currentFormation = formationId
+    localStorage.setItem('currentFormation', formationId);
+    currentFormation = formationId;
+    
     let cards = document.querySelectorAll('.field-card');
     let formation = formations.find(f => f.formation === formationId);
 
@@ -64,26 +66,40 @@ function updateCardsPosition(formationId) {
             card.style.top = `${position.y}%`;
             card.style.transform = 'translateY(-100%) translateX(-50%)';
 
+            const savedPlayer = fieldPlayers.find(fp => fp.cardId === index);
+            if (savedPlayer) {
+                card.innerHTML = '';
+                card.appendChild(
+                    createPlayerCard(
+                        {
+                            sm: { w: "60px", scale: 0.537 },
+                            md: { w: "80px", scale: 0.675 },
+                            lg: { w: "100px", scale: 0.749 },
+                            class: "player-card cursor-pointer",
+                        },
+                        false,
+                        savedPlayer.player,
+                        null,
+                    )
+                );
+            } else {
+                card.innerHTML = '';
+                card.appendChild(createPlayerCard(fieldPlayerCardConfig, true, null, null));
+            }
 
-            card.querySelector('.card-prototype-position span').innerText = `${position.pos}`;
+            card.innerHTML += `
+                <div class="absolute lg:-bottom-14 md:-bottom-14 -bottom-10 card-prototype-position">
+                    <span class="text-[11px] text-[#2C2C2C] font-semibold bg-[#ffffff80] -translate-x-1/2 px-2 py-0.5 rounded-full shadow-sm">${position.pos}</span>
+                </div>
+            `;
+
             card.addEventListener('click', () => {
                 clickedFieldCard = index;
                 showSubstituteModal(position.pos);
             });
             card.addEventListener('contextmenu', (e) => {
                 e.preventDefault();
-                card.innerHTML = '';
-                card.appendChild(
-                  createPlayerCard(fieldPlayerCardConfig, true, null, null)
-                );
-                let cardPosition = `
-                    <div class="absolute lg:-bottom-14 md:-bottom-14 -bottom-10 card-prototype-position">
-                        <span class="text-[11px] text-[#2C2C2C] font-semibold bg-[#ffffff80] -translate-x-1/2 px-2 py-0.5 rounded-full shadow-sm"></span>
-                    </div>
-                `;
-                card.innerHTML += cardPosition;
-                card.querySelector('.card-prototype-position span').innerText = `${position.pos}`;
-                fieldPlayers = fieldPlayers.filter(fp => fp.cardId !== index);
+                clearFieldPlayer(index);
             });
         }
     });
@@ -123,27 +139,46 @@ function substitutePlayer(newPlayer) {
         const card = document.querySelectorAll('.field-card')[clickedFieldCard];
         card.innerHTML = '';
 
-
         card.appendChild(
-          createPlayerCard(
-            {
-              sm: { w: "60px", scale: 0.537 },
-              md: { w: "80px", scale: 0.675 },
-              lg: { w: "100px", scale: 0.749 },
-              class: "player-card cursor-pointer",
-            },
-            false,
-            newPlayer,
-            null,
-          )
+            createPlayerCard(
+                {
+                    sm: { w: "60px", scale: 0.537 },
+                    md: { w: "80px", scale: 0.675 },
+                    lg: { w: "100px", scale: 0.749 },
+                    class: "player-card cursor-pointer",
+                },
+                false,
+                newPlayer,
+                null,
+            )
         );
 
-        fieldPlayers = fieldPlayers.filter(fp => fp.c);
-
+        fieldPlayers = fieldPlayers.filter(fp => fp.cardId !== clickedFieldCard);
         fieldPlayers.push({cardId: clickedFieldCard, player: newPlayer});
+        
+        localStorage.setItem('fieldPlayers', JSON.stringify(fieldPlayers));
 
-        const pos = formations.find(f => f.formation === currentFormation).prototype[clickedFieldCard].pos
-        card.innerHTML += `<div class="absolute lg:-bottom-14 md:-bottom-14 -bottom-10 card-prototype-position"><span class="text-[11px] text-[#2C2C2C] font-semibold bg-[#ffffff80] -translate-x-1/2 px-2 py-0.5 rounded-full shadow-sm">${pos}</span></div>`;
-
+        const pos = formations.find(f => f.formation === currentFormation).prototype[clickedFieldCard].pos;
+        card.innerHTML += `
+            <div class="absolute lg:-bottom-14 md:-bottom-14 -bottom-10 card-prototype-position">
+                <span class="text-[11px] text-[#2C2C2C] font-semibold bg-[#ffffff80] -translate-x-1/2 px-2 py-0.5 rounded-full shadow-sm">${pos}</span>
+            </div>
+        `;
     }
+}
+
+function clearFieldPlayer(cardIndex) {
+    const card = document.querySelectorAll('.field-card')[cardIndex];
+    card.innerHTML = '';
+    card.appendChild(createPlayerCard(fieldPlayerCardConfig, true, null, null));
+    
+    const pos = formations.find(f => f.formation === currentFormation).prototype[cardIndex].pos;
+    card.innerHTML += `
+        <div class="absolute lg:-bottom-14 md:-bottom-14 -bottom-10 card-prototype-position">
+            <span class="text-[11px] text-[#2C2C2C] font-semibold bg-[#ffffff80] -translate-x-1/2 px-2 py-0.5 rounded-full shadow-sm">${pos}</span>
+        </div>
+    `;
+    
+    fieldPlayers = fieldPlayers.filter(fp => fp.cardId !== cardIndex);
+    localStorage.setItem('fieldPlayers', JSON.stringify(fieldPlayers));
 }
