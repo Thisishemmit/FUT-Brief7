@@ -92,22 +92,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   playerForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    if (validatePlayerForm() && playerForm.dataset.editMode === 'false') {
+    if (validatePlayerForm()) {
       const playerData = createPlayerObjectFromForm();
       const isEditing = playerForm.dataset.editMode === 'true';
       
       const players = JSON.parse(localStorage.getItem("players")) || [];
       
       if (isEditing) {
-        const index = players.findIndex(p => p.id === playerData.id);
+        const index = players.findIndex(p => p.id === parseInt(playerForm.dataset.editId));
         if (index !== -1) {
           players[index] = playerData;
+          if (selectedPlayer && selectedPlayer.id === playerData.id) {
+            selectPlayer(playerData);
+          }
         }
       } else {
         players.push(playerData);
       }
       
       localStorage.setItem("players", JSON.stringify(players));
+      window.players = players;
+
+      displayPlayers(players);
+      updatePlayerDisplay();
 
       playerForm.reset();
       resetPreview();
@@ -116,8 +123,6 @@ document.addEventListener("DOMContentLoaded", () => {
       
       playerForm.dataset.editMode = 'false';
       delete playerForm.dataset.editId;
-      
-      displayPlayers();
     }
   });
 });
