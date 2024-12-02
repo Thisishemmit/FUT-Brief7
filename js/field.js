@@ -5,13 +5,13 @@ const fieldPlayerCardConfig = {
   class: "field-player-card absolute",
 };
 
-for (let i = 0; i < 11; i++) {
-  let container = document.getElementById("pitch-cards-container");
+function createEmptyFieldCard() {
+
   const cardContainer = document.createElement("div");
   cardContainer.classList.add(
     "absolute",
-    "w-[10%]",
-    "h-[10%]",
+    "w-[9%]",
+    "h-[9%]",
     "field-card",
     "flex",
     "flex-col",
@@ -20,19 +20,23 @@ for (let i = 0; i < 11; i++) {
     'duration-300',
     'ease-in-out'
   );
-  const cardCallback = () => {
-    console.log("add player to card id", i);
-  };
+
   cardContainer.appendChild(
-    createPlayerCard(fieldPlayerCardConfig, true, null, cardCallback)
+    createPlayerCard(fieldPlayerCardConfig, true, null, null)
   );
   let cardPosition = `
-        <div class="relative lg:-top-[50%] md:-top-[60%] -top-[80%] card-prototype-position">
-            
-        </div>
+        <div class="absolute lg:-bottom-14 md:-bottom-14 -bottom-10 card-prototype-position">
+            <span class="text-[11px] text-[#2C2C2C] font-semibold bg-[#ffffff80] -translate-x-1/2 px-2 py-0.5 rounded-full shadow-sm"></span>
+        </div>  
   `;
   cardContainer.innerHTML += cardPosition;
-  container.appendChild(cardContainer);
+  return cardContainer;
+}
+
+let container = document.getElementById("pitch-cards-container");
+for (let i = 0; i < 11; i++) {
+  container.appendChild(createEmptyFieldCard());
+
 }
 updateCardsPosition("4-3-3");
 

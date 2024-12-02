@@ -2,12 +2,19 @@ let players = [];
 
 async function loadPlayers() {
   try {
-    const response = await fetch("assets/players.json");
-    if (!response.ok) {
-      throw new Error("Failed to load players data");
+
+
+    if (localStorage.getItem("players")) {
+      players = JSON.parse(localStorage.getItem("players"));
+    } else {
+      const response = await fetch("assets/players.json");
+      if (!response.ok) {
+        throw new Error("Failed to load players data");
+      }
+      const data = await response.json();
+      players = data.players;
+      saveToLocalStorage(players);
     }
-    const data = await response.json();
-    players = data.players;
 
     displayPlayers();
   } catch (error) {
@@ -15,7 +22,11 @@ async function loadPlayers() {
   }
 }
 
-function displayPlayers() {
+function saveToLocalStorage(players) {
+  localStorage.setItem("players", JSON.stringify(players));
+}
+
+function displayPlayers(plrs = players) {
   const playersContainer = document.getElementById("players");
   const playerListCardConfig = {
     sm: { w: "80px", scale: 0.537 },
@@ -38,7 +49,6 @@ function displayPlayers() {
         </div>
     `;
 
-  // Add event listener after creating the button
   const addPlayerButton = document.querySelector("#add-player-to-list");
   const addPlayerPopup = document.getElementById("add-player-popup");
 
@@ -46,17 +56,22 @@ function displayPlayers() {
     addPlayerPopup.classList.remove("hidden");
   });
 
-  players.forEach((player) => {
+  plrs.forEach((player) => {
+    const clickCallback = () => {   
+      selectPlayer(player);
+    }
     playersContainer.appendChild(
-      createPlayerCard(playerListCardConfig, false, player, null, true)
+      createPlayerCard(playerListCardConfig, false, player, clickCallback)
     );
   });
 }
 
-// Load players when the document is ready
 document.addEventListener("DOMContentLoaded", loadPlayers);
 
 function createPlayerObjectFromForm() {
+  const form = document.querySelector('#add-player-form form');
+  const isEditing = form.dataset.editMode === 'true';
+
   const firstName = document.getElementById("first-name").value.trim();
   const lastName = document.getElementById("last-name").value.trim();
   const position = document.getElementById("position-select").value;
@@ -82,13 +97,12 @@ function createPlayerObjectFromForm() {
   const overallRating = document.getElementById("overall-rating").value;
 
   return {
-    id: Date.now(),
+    id: isEditing ? parseInt(form.dataset.editId) : Date.now(),
     firstName,
     lastName,
-    fullName: `${firstName} ${lastName}`,
     position,
     skills,
-    overall: overallRating,
+    rating: overallRating,
     nationality: selectedCountryName,
     flag: document.getElementById("preview-country").querySelector("img").src,
     club: selectedClubName,

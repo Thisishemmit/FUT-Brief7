@@ -38,15 +38,17 @@ function updatePlayerDisplay() {
         nameSection.className = 'flex-grow pl-4 md:pl-6 lg:pl-8';
         nameSection.innerHTML = `
             <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[0.9]">
-                ${selectedPlayer.name.split(' ').join('<br/>')}
+                ${selectedPlayer.firstName.split(' ').join('<br/>')} ${selectedPlayer.lastName.split(' ').join('<br/>')}
             </h1>
             <div class="flex gap-3 md:gap-4 lg:gap-5 pt-3 md:pt-4 lg:pt-5">
-                <button class="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-[#3C3C3C] border-2 border-[#ffffff10] rounded-full text-white flex justify-center items-center hover:bg-[#4C4C4C] transition-colors">
+                <button onclick="openEditForm(selectedPlayer)"
+                class="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-[#3C3C3C] border-2 border-[#ffffff10] rounded-full text-white flex justify-center items-center hover:bg-[#4C4C4C] transition-colors">
                     <span class="material-symbols-outlined text-xl md:text-2xl lg:text-3xl">
                         edit_square
                     </span>
                 </button>
-                <button class="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-[#FA3113] border-2 border-[#ffffff10] rounded-full text-white flex justify-center items-center hover:bg-[#FF4124] transition-colors">
+                <button onclick="deletePlayer(selectedPlayer.id)"
+                class="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-[#FA3113] border-2 border-[#ffffff10] rounded-full text-white flex justify-center items-center hover:bg-[#FF4124] transition-colors">
                     <span class="material-symbols-outlined text-xl md:text-2xl lg:text-3xl">
                         delete
                     </span>

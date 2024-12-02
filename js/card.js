@@ -1,28 +1,17 @@
+const cardDefaultConfig = { sm: { w: "80px", scale: 0.537 }, md: { w: "110px", scale: 0.738 }, lg: { w: "149px", scale: 1 }, class: "player-card" };
+
 function createPlayerCard(
-  config = {
-    sm: { w: "80px", scale: 0.537 },
-    md: { w: "110px", scale: 0.738 },
-    lg: { w: "149px", scale: 1 },
-    class: "player-card",
-  },
+  config = cardDefaultConfig,
   empty = false,
   player = null,
-  emptyButCallback = null,
-  selectable = false
-) {
+  clickCallback = null) {
+
   const card = document.createElement("div");
   card.className = `${config.class} w-[${config.sm.w}] md:w-[${config.md.w}] lg:w-[${config.lg.w}] h-[calc(${config.sm.w}*208/149)] md:h-[calc(${config.md.w}*208/149)] lg:h-[calc(${config.lg.w}*208/149)] relative flex justify-center items-center`;
   card.dataset.id = player?.id;
-  if (selectable) {
+  if (clickCallback) {
     card.classList.add("cursor-pointer");
-    card.addEventListener("click", () => {
-      selectPlayer(player);
-    });
-  }
-  let lastName = "";
-  if (player) {
-    lastName = player.name.split(" ");
-    lastName = lastName[lastName.length - 1];
+    card.addEventListener("click", clickCallback);
   }
 
   card.innerHTML = `
@@ -30,19 +19,11 @@ function createPlayerCard(
             <img src="assets/badge_gold.webp" alt="" class="w-full h-full">
             <div class="card-details absolute w-full h-full top-0">
             </div>
+
         </div>
     `;
-
-  if (empty) {
-    card.querySelector(".card-details").innerHTML = `
-            <button class="w-1/2 aspect-square absolute top-1/2 md:hidden left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#3C3C3C] border-2 border-[#ffffff10] rounded-full text-white flex justify-center items-center hover:bg-[#4C4C4C] transition-colors">
-                <span class="material-symbols-outlined text-3xl">
-                    add
-                </span>
-            </button>
-        `;
-    card.querySelector("button").addEventListener("click", emptyButCallback);
-  } else {
+    
+  if (!empty) {
     card.querySelector(".card-details").innerHTML = `
                 <div class="flex flex-col w-fit items-center absolute top-12 left-5 -space-y-2">
                     <span class="text-xl font-black text-[#393218]">${
@@ -53,10 +34,10 @@ function createPlayerCard(
                     }</span>
                 </div>
                 <div class="flex flex-col w-24 absolute left-1/2 -translate-x-1/2 top-9">
-                    <img src="${player.photo}" alt="${lastName}" class="w-full">
+                    <img src="${player.photo}" alt="${player.lastName}" class="w-full">
                 </div>
                 <div class="text-[#393218] font-bold absolute bottom-[54px] left-1/2 -translate-x-1/2">
-                    ${lastName}
+                    ${player.lastName}
                 </div>
                 <div class="w-28 flex absolute left-1/2 -translate-x-1/2 bottom-7 leading-3 h-10 justify-between">
                     ${player.skills
