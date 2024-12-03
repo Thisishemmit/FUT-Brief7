@@ -1,257 +1,429 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title></title>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
     <script src="libs/tailwindcss.js"></script>
-</head>
+  </head>
 
-<body class="bg-[#2C2C2C]">
+  <body class="bg-[#2C2C2C]">
     <div
-        class="bg-[url('./assets/stadium_background.webp')] w-full h-screen bg-cover bg-[center_20%] bg-no-repeat relative z-10">
-        <div class="absolute w-full h-full bg-gradient-to-t from-[#2C2C2C] to-[#2C2C2C22] -translate-y-1/2 z-[-1]">
-        </div>
-        <div class="absolute w-full h-1/2 bg-[#2C2C2C] top-1/2 z-[-1]"></div>
-        <div id="container" class="w-full min-h-screen flex flex-col-reverse lg:flex-row p-10 gap-5 relative">
-            <div id="add-player-popup"
-                class="hidden w-[calc(100%_-_2.5rem)] z-40 fixed h-[calc(100%_-_2.5rem)] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-xl backdrop-blur-2xl bg-[#ffffff90] border-2 border-[#ffffff20]">
-                <div class="w-full h-full p-5 flex flex-col lg:flex-row gap-5">
-                    <div id="preview" class="w-full lg:w-1/3 flex flex-col items-center justify-center">
-                        <div class="w-fit relative player-card scale-90 lg:scale-[2]">
-                            <img src="assets/badge_gold.webp" alt="Badge" class="h-52" />
-                            <div id="player-details" class="absolute w-full h-full top-0">
-                                <div class="flex flex-col w-fit items-center absolute top-12 left-5 -space-y-2">
-                                    <span id="preview-ovr" class="text-xl font-black text-[#393218]">--</span>
-                                    <span id="preview-pos" class="text-sm font-bold text-[#393218]">--</span>
-                                </div>
-                                <div class="flex flex-col w-24 absolute left-1/2 -translate-x-1/2 top-9">
-                                    <img src="" id="preview-img" alt="" class="opacity-0" />
-                                </div>
-                                <div id="preview-name"
-                                    class="text-[#393218] font-bold absolute bottom-[54px] left-1/2 -translate-x-1/2">
-                                    --
-                                </div>
+      class="bg-[url('./assets/stadium_background.webp')] w-full h-screen bg-cover bg-[center_20%] bg-no-repeat relative z-10"
+    >
+      <div
+        class="absolute w-full h-full bg-gradient-to-t from-[#2C2C2C] to-[#2C2C2C22] -translate-y-1/2 z-[-1]"
+      ></div>
+      <div class="absolute w-full h-1/2 bg-[#2C2C2C] top-1/2 z-[-1]"></div>
+      <div
+        id="container"
+        class="w-full min-h-screen flex flex-col-reverse lg:flex-row p-10 gap-5 relative"
+      >
+        <div
+          id="add-player-popup"
+          class="hidden w-[calc(100%_-_2.5rem)] z-40 fixed h-[calc(100%_-_2.5rem)] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-xl backdrop-blur-2xl bg-[#ffffff90] border-2 border-[#ffffff20]"
+        >
+          <div class="w-full h-full p-5 flex flex-col lg:flex-row gap-5">
+            <div
+              id="preview"
+              class="w-full lg:w-1/3 flex flex-col items-center justify-center"
+            >
+              <div class="w-fit relative player-card scale-90 lg:scale-[2]">
+                <img src="assets/badge_gold.webp" alt="Badge" class="h-52" />
+                <div id="player-details" class="absolute w-full h-full top-0">
+                  <div
+                    class="flex flex-col w-fit items-center absolute top-12 left-5 -space-y-2"
+                  >
+                    <span
+                      id="preview-ovr"
+                      class="text-xl font-black text-[#393218]"
+                      >--</span
+                    >
+                    <span
+                      id="preview-pos"
+                      class="text-sm font-bold text-[#393218]"
+                      >--</span
+                    >
+                  </div>
+                  <div
+                    class="flex flex-col w-24 absolute left-1/2 -translate-x-1/2 top-9"
+                  >
+                    <img src="" id="preview-img" alt="" class="opacity-0" />
+                  </div>
+                  <div
+                    id="preview-name"
+                    class="text-[#393218] font-bold absolute bottom-[54px] left-1/2 -translate-x-1/2"
+                  >
+                    --
+                  </div>
 
-                                <div id="preview-skills"
-                                    class="w-28 flex absolute left-1/2 -translate-x-1/2 bottom-7 leading-3 h-10 justify-between">
-                                </div>
-                                <div
-                                    class="absolute bottom-[22px] left-1/2 -translate-x-1/2 flex gap-1 justify-center items-center">
-                                    <div id="preview-country" class="w-3 opacity-0">
-                                        <img src="" alt="Country" class="w-full" />
-                                    </div>
-                                    <span id="preview-club" class="w-3 h-3 opacity-0">
-                                        <img src="" alt="Club" class="w-full" />
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
+                  <div
+                    id="preview-skills"
+                    class="w-28 flex absolute left-1/2 -translate-x-1/2 bottom-7 leading-3 h-10 justify-between"
+                  ></div>
+                  <div
+                    class="absolute bottom-[22px] left-1/2 -translate-x-1/2 flex gap-1 justify-center items-center"
+                  >
+                    <div id="preview-country" class="w-3 opacity-0">
+                      <img src="" alt="Country" class="w-full" />
                     </div>
-
-                    <div id="add-player-form" class="w-full lg:w-2/3 bg-[#ffffff20] rounded-xl p-5 overflow-y-auto">
-                        <div class="flex justify-between items-center mb-6">
-                            <h2 class="text-2xl font-bold text-[#2C2C2C]">
-                                Add New Player
-                            </h2>
-                        </div>
-
-                        <form class="space-y-6">
-                            <div class="space-y-4">
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div>
-                                        <label class="block text-sm font-medium text-[#2C2C2C] mb-1">First Name</label>
-                                        <input type="text" id="first-name"
-                                            class="w-full px-3 py-2 bg-white/50 rounded-lg border border-[#ffffff40]" />
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-[#2C2C2C] mb-1">Last Name</label>
-                                        <input type="text" id="last-name"
-                                            class="w-full px-3 py-2 bg-white/50 rounded-lg border border-[#ffffff40]"
-                                            oninput="updatePreviewName(this.value)" />
-                                    </div>
-                                </div>
-
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div>
-                                        <label class="block text-sm font-medium text-[#2C2C2C] mb-1">Overall
-                                            Rating</label>
-                                        <input type="number" id="overall-rating" min="1" max="99"
-                                            class="w-full px-3 py-2 bg-white/50 rounded-lg border border-[#ffffff40]"
-                                            oninput="updatePreviewOvr(this.value)" />
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-[#2C2C2C] mb-1">Player Image
-                                            URL</label>
-                                        <input type="url" id="player-image"
-                                            class="w-full px-3 py-2 bg-white/50 rounded-lg border border-[#ffffff40]"
-                                            oninput="updatePreviewImage(this.value)" />
-                                    </div>
-                                </div>
-
-                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                    <div>
-                                        <label class="block text-sm font-medium text-[#2C2C2C] mb-1">Position</label>
-                                        <select id="position-select"
-                                            class="w-full px-3 py-2 bg-white/50 rounded-lg border border-[#ffffff40]">
-                                            <option value="">Select Position</option>
-                                            <option value="GK">Goalkeeper (GK)</option>
-                                            <option value="CB">Centre-Back (CB)</option>
-                                            <option value="RB">Right-Back (RB)</option>
-                                            <option value="LB">Left-Back (LB)</option>
-                                            <option value="CDM">Defensive Midfielder (CDM)</option>
-                                            <option value="CM">Central Midfielder (CM)</option>
-                                            <option value="CAM">Attacking Midfielder (CAM)</option>
-                                            <option value="RM">Right Midfielder (RM)</option>
-                                            <option value="LM">Left Midfielder (LM)</option>
-                                            <option value="RW">Right Winger (RW)</option>
-                                            <option value="LW">Left Winger (LW)</option>
-                                            <option value="ST">Striker (ST)</option>
-                                            <option value="CF">Centre-Forward (CF)</option>
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-[#2C2C2C] mb-1">Country Flag
-                                            URL</label>
-                                        <input type="url" id="country-image"
-                                            class="w-full px-3 py-2 bg-white/50 rounded-lg border border-[#ffffff40]"
-                                            oninput="updatePreviewCountry(this.value)" />
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-[#2C2C2C] mb-1">Club Badge
-                                            URL</label>
-                                        <input type="url" id="club-image"
-                                            class="w-full px-3 py-2 bg-white/50 rounded-lg border border-[#ffffff40]"
-                                            oninput="updatePreviewClub(this.value)" />
-                                    </div>
-                                </div>
-
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div>
-                                        <label class="block text-sm font-medium text-[#2C2C2C] mb-1">Country
-                                            Name</label>
-                                        <input type="text" id="country-name"
-                                            class="w-full px-3 py-2 bg-white/50 rounded-lg border border-[#ffffff40]"
-                                            oninput="updateCountryName(this.value)" />
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-[#2C2C2C] mb-1">Club Name</label>
-                                        <input type="text" id="club-name"
-                                            class="w-full px-3 py-2 bg-white/50 rounded-lg border border-[#ffffff40]"
-                                            oninput="updateClubName(this.value)" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div id="skills-section" class="space-y-4">
-                                <h3 class="text-lg font-semibold text-[#2C2C2C]">
-                                    Player Skills
-                                </h3>
-                                <div id="skills-inputs" class="grid grid-cols-2 md:grid-cols-3 gap-4"></div>
-                            </div>
-
-                            <div class="flex justify-end gap-4 pt-4">
-                                <button type="button"
-                                    class="px-6 py-2 rounded-lg bg-[#3C3C3C] text-white hover:bg-[#2C2C2C]">
-                                    Cancel
-                                </button>
-                                <button type="submit"
-                                    class="px-6 py-2 rounded-lg bg-[#4CAF50] text-white hover:bg-[#45a049]">
-                                    Add Player
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+                    <span id="preview-club" class="w-3 h-3 opacity-0">
+                      <img src="" alt="Club" class="w-full" />
+                    </span>
+                  </div>
                 </div>
-            </div>
-            <div id="substitute-players" class="fixed top-0 left-0 -z-50 w-screen h-screen flex justify-center items-center">
-                <div class="bg-[#1B1B1B] rounded-xl p-4 w-[90%] md:w-[70%] lg:w-[50%] max-h-[80vh] flex flex-col gap-4">
-                    <div class="flex justify-between items-center">
-                        <h2 class="text-white text-xl font-bold">Select Substitute Player</h2>
-                        <button id="close-substitute-modal"
-                            class="w-10 h-10 rounded-full bg-[#3C3C3C] hover:bg-[#4C4C4C] transition-colors flex items-center justify-center">
-                            <span class="material-symbols-outlined text-white">close</span>
-                        </button>
-                    </div>
-                    <div id="substitute-players-display"
-                        class="flex flex-row flex-wrap min-h-96 max-h-screen justify-center items-start gap-4 p-4 overflow-y-auto">
-                    </div>
-                </div>
+              </div>
             </div>
 
-            <div id="players-display" class="w-full lg:w-[512px] lg:h-[calc(100vh-5rem)] flex-shrink-0">
-                <div class="w-full h-full rounded-xl bg-[#1B1B1B] flex flex-col md:flex-row lg:flex-col">
-                    <div id="selected-player-display"
-                        class="w-full md:w-1/2 lg:w-full h-52 md:h-full lg:h-52 pl-5 md:pl-8 lg:pl-10 flex items-center flex-shrink-0">
+            <div
+              id="add-player-form"
+              class="w-full lg:w-2/3 bg-[#ffffff20] rounded-xl p-5 overflow-y-auto"
+            >
+              <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-[#2C2C2C]">
+                  Add New Player
+                </h2>
+              </div>
 
+              <form class="space-y-6">
+                <div class="space-y-4">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-[#2C2C2C] mb-1"
+                        >First Name</label
+                      >
+                      <input
+                        type="text"
+                        id="first-name"
+                        class="w-full px-3 py-2 bg-white/50 rounded-lg border border-[#ffffff40]"
+                      />
                     </div>
-                    <div id="players"
-                        class="flex flex-row flex-wrap flex-grow justify-center items-start gap-4 p-4 lg:overflow-y-auto">
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-[#2C2C2C] mb-1"
+                        >Last Name</label
+                      >
+                      <input
+                        type="text"
+                        id="last-name"
+                        class="w-full px-3 py-2 bg-white/50 rounded-lg border border-[#ffffff40]"
+                        oninput="updatePreviewName(this.value)"
+                      />
+                    </div>
+                  </div>
 
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-[#2C2C2C] mb-1"
+                        >Overall Rating</label
+                      >
+                      <input
+                        type="number"
+                        id="overall-rating"
+                        min="1"
+                        max="99"
+                        class="w-full px-3 py-2 bg-white/50 rounded-lg border border-[#ffffff40]"
+                        oninput="updatePreviewOvr(this.value)"
+                      />
                     </div>
-                </div>
-            </div>
-            <div id="pitch-display"
-                class="w-full h-[80vh] lg:h-[calc(100vh-5rem)] flex-grow flex justify-center items-center relative">
-                <div
-                    class="w-full h-full rounded-xl backdrop-blur-2xl bg-[#ffffff10] border-2 border-[#ffffff10] relative">
-                    <div id="pitch-background"
-                        class="absolute w-full top-0 left-0 h-full bg-cover bg-[center_20%] bg-no-repeat">
-                        <div id="pitch-edges"
-                            class="w-full h-full border-2 border-[#ffffff] absolute top-0 left-0 rounded-xl"></div>
-                        <div id="pitch-center-circle"
-                            class="w-3 h-3 bg-[#ffffff] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full">
-                        </div>
-                        <div id="pitch-center-circle-outline"
-                            class="w-28 h-28 border-2 border-[#ffffff] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full">
-                        </div>
-                        <div id="pitch-center-line"
-                            class="w-full h-0.5  bg-[#ffffff] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                        </div>
-                        <div id="pitch-top-area" class="w-full h-1/2 absolute top-0 left-0 rounded-xl">
-                            <div id="goal-rectangle"
-                                class="w-16 h-5 top-0 left-1/2 -translate-x-1/2 absolute border-2 border-[#ffffff]">
-                            </div>
-                            <div id="penalty-area"
-                                class="w-36 h-16 top-0 left-1/2 -translate-x-1/2 absolute border-2 border-[#ffffff]">
-                                <div id="penalty-spot"
-                                    class="w-2 h-2 bg-[#ffffff] absolute top-11 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full">
-                                </div>
-                            </div>
-                        </div>
-                        <div id="pitch-bottom-area" class="w-full h-1/2 absolute bottom-0 left-0 rounded-xl">
-                            <div id="goal-rectangle"
-                                class="w-16 h-5 bottom-0 left-1/2 -translate-x-1/2 absolute border-2 border-[#ffffff]">
-                            </div>
-                            <div id="penalty-area"
-                                class="w-36 h-16 bottom-0 left-1/2 -translate-x-1/2 absolute border-2 border-[#ffffff]">
-                                <div id="penalty-spot"
-                                    class="w-2 h-2 bg-[#ffffff] absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full">
-                                </div>
-                            </div>
-                        </div>
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-[#2C2C2C] mb-1"
+                        >Player Image URL</label
+                      >
+                      <input
+                        type="url"
+                        id="player-image"
+                        class="w-full px-3 py-2 bg-white/50 rounded-lg border border-[#ffffff40]"
+                        oninput="updatePreviewImage(this.value)"
+                      />
                     </div>
-                    <div id="pitch-cards-container" class="absolute top-0 left-0 w-full h-full"></div>
-                    <select name="formation" id="formation-select" onchange="updateCardsPosition(this.value)"
-                        value="4-3-3"
-                        class="absolute top-4 left-4 bg-white/50 rounded-lg border border-[#ffffff40] px-3 py-2 text-white">
-                        <option value="4-3-3" class="text-black">4-3-3</option>
-                        <option value="4-4-2" class="text-black">4-4-2</option>
+                  </div>
+
+                  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-[#2C2C2C] mb-1"
+                        >Position</label
+                      >
+                      <select
+                        id="position-select"
+                        class="w-full px-3 py-2 bg-white/50 rounded-lg border border-[#ffffff40]"
+                      >
+                        <option value="">Select Position</option>
+                        <option value="GK">Goalkeeper (GK)</option>
+                        <option value="CB">Centre-Back (CB)</option>
+                        <option value="RB">Right-Back (RB)</option>
+                        <option value="LB">Left-Back (LB)</option>
+                        <option value="CDM">Defensive Midfielder (CDM)</option>
+                        <option value="CM">Central Midfielder (CM)</option>
+                        <option value="CAM">Attacking Midfielder (CAM)</option>
+                        <option value="RM">Right Midfielder (RM)</option>
+                        <option value="LM">Left Midfielder (LM)</option>
+                        <option value="RW">Right Winger (RW)</option>
+                        <option value="LW">Left Winger (LW)</option>
+                        <option value="ST">Striker (ST)</option>
+                        <option value="CF">Centre-Forward (CF)</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-[#2C2C2C] mb-1"
+                        >Country Flag URL</label
+                      >
+                      <input
+                        type="url"
+                        id="country-image"
+                        class="w-full px-3 py-2 bg-white/50 rounded-lg border border-[#ffffff40]"
+                        oninput="updatePreviewCountry(this.value)"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-[#2C2C2C] mb-1"
+                        >Club Badge URL</label
+                      >
+                      <input
+                        type="url"
+                        id="club-image"
+                        class="w-full px-3 py-2 bg-white/50 rounded-lg border border-[#ffffff40]"
+                        oninput="updatePreviewClub(this.value)"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-[#2C2C2C] mb-1"
+                        >Country Name</label
+                      >
+                      <input
+                        type="text"
+                        id="country-name"
+                        class="w-full px-3 py-2 bg-white/50 rounded-lg border border-[#ffffff40]"
+                        oninput="updateCountryName(this.value)"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-[#2C2C2C] mb-1"
+                        >Club Name</label
+                      >
+                      <input
+                        type="text"
+                        id="club-name"
+                        class="w-full px-3 py-2 bg-white/50 rounded-lg border border-[#ffffff40]"
+                        oninput="updateClubName(this.value)"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label
+                      for="league-select"
+                      class="block text-sm font-medium text-[#2C2C2C] mb-1"
+                      >League</label
+                    >
+                    <select
+                      id="league-select"
+                      class="w-full px-3 py-2 bg-white/50 rounded-lg border border-[#ffffff40]"
+                    >
+                      <option value="Premier League">Premier League</option>
+                      <option value="La Liga">La Liga</option>
+                      <option value="Serie A">Serie A</option>
+                      <option value="Bundesliga">Bundesliga</option>
+                      <option value="Ligue 1">Ligue 1</option>
                     </select>
+                  </div>
                 </div>
+
+                <div id="skills-section" class="space-y-4">
+                  <h3 class="text-lg font-semibold text-[#2C2C2C]">
+                    Player Skills
+                  </h3>
+                  <div
+                    id="skills-inputs"
+                    class="grid grid-cols-2 md:grid-cols-3 gap-4"
+                  ></div>
+                </div>
+
+                <div class="flex justify-end gap-4 pt-4">
+                  <button
+                    type="button"
+                    class="px-6 py-2 rounded-lg bg-[#3C3C3C] text-white hover:bg-[#2C2C2C]"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    class="px-6 py-2 rounded-lg bg-[#4CAF50] text-white hover:bg-[#45a049]"
+                  >
+                    Add Player
+                  </button>
+                </div>
+              </form>
             </div>
+          </div>
         </div>
+        <div
+          id="substitute-players"
+          class="fixed top-0 left-0 -z-50 w-screen h-screen flex justify-center items-center"
+        >
+          <div
+            class="bg-[#1B1B1B] rounded-xl p-4 w-[90%] md:w-[70%] lg:w-[50%] max-h-[80vh] flex flex-col gap-4"
+          >
+            <div class="flex justify-between items-center">
+              <h2 class="text-white text-xl font-bold">
+                Select Substitute Player
+              </h2>
+              <button
+                id="close-substitute-modal"
+                class="w-10 h-10 rounded-full bg-[#3C3C3C] hover:bg-[#4C4C4C] transition-colors flex items-center justify-center"
+              >
+                <span class="material-symbols-outlined text-white">close</span>
+              </button>
+            </div>
+            <div
+              id="substitute-players-display"
+              class="flex flex-row flex-wrap min-h-96 max-h-screen justify-center items-start gap-4 p-4 overflow-y-auto"
+            ></div>
+          </div>
+        </div>
+
+        <div
+          id="players-display"
+          class="w-full lg:w-[512px] lg:h-[calc(100vh-5rem)] flex-shrink-0"
+        >
+          <div
+            class="w-full h-full rounded-xl bg-[#1B1B1B] flex flex-col md:flex-row lg:flex-col"
+          >
+            <div
+              id="selected-player-display"
+              class="w-full md:w-1/2 lg:w-full h-52 md:h-full lg:h-52 pl-5 md:pl-8 lg:pl-10 flex items-center flex-shrink-0"
+            ></div>
+            <div
+              id="players"
+              class="flex flex-row flex-wrap flex-grow justify-center items-start gap-4 p-4 lg:overflow-y-auto"
+            ></div>
+          </div>
+        </div>
+        <div
+          id="pitch-display"
+          class="w-full h-[80vh] lg:h-[calc(100vh-5rem)] flex-grow flex justify-center items-center relative min-w-[252px]"
+        >
+          <div
+            class="w-full h-full rounded-xl backdrop-blur-2xl bg-[#ffffff10] border-2 border-[#ffffff10] relative min-w-[252px]"
+          >
+            <div
+              id="pitch-background"
+              class="absolute w-full top-0 left-0 h-full bg-cover bg-[center_20%] bg-no-repeat min-w-[252px]"
+            >
+              <div
+                id="pitch-edges"
+                class="w-full h-full border-2 border-[#ffffff] absolute top-0 left-0 rounded-xl"
+              ></div>
+              <div
+                id="pitch-center-circle"
+                class="w-3 h-3 bg-[#ffffff] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"
+              ></div>
+              <div
+                id="pitch-center-circle-outline"
+                class="w-28 h-28 border-2 border-[#ffffff] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"
+              ></div>
+              <div
+                id="pitch-center-line"
+                class="w-full h-0.5 bg-[#ffffff] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+              ></div>
+              <div
+                id="pitch-top-area"
+                class="w-full h-1/2 absolute top-0 left-0 rounded-xl"
+              >
+                <div
+                  id="goal-rectangle"
+                  class="w-16 h-5 top-0 left-1/2 -translate-x-1/2 absolute border-2 border-[#ffffff]"
+                ></div>
+                <div
+                  id="penalty-area"
+                  class="w-36 h-16 top-0 left-1/2 -translate-x-1/2 absolute border-2 border-[#ffffff]"
+                >
+                  <div
+                    id="penalty-spot"
+                    class="w-2 h-2 bg-[#ffffff] absolute top-11 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"
+                  ></div>
+                </div>
+              </div>
+              <div
+                id="pitch-bottom-area"
+                class="w-full h-1/2 absolute bottom-0 left-0 rounded-xl"
+              >
+                <div
+                  id="goal-rectangle"
+                  class="w-16 h-5 bottom-0 left-1/2 -translate-x-1/2 absolute border-2 border-[#ffffff]"
+                ></div>
+                <div
+                  id="penalty-area"
+                  class="w-36 h-16 bottom-0 left-1/2 -translate-x-1/2 absolute border-2 border-[#ffffff]"
+                >
+                  <div
+                    id="penalty-spot"
+                    class="w-2 h-2 bg-[#ffffff] absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              id="pitch-cards-container"
+              class="absolute top-0 left-0 w-full h-full"
+            ></div>
+            <select
+              name="formation"
+              id="formation-select"
+              onchange="updateCardsPosition(this.value)"
+              value="4-3-3"
+              class="absolute top-4 left-4 bg-white/10 backdrop-blur-md rounded-lg sm:rounded-xl border border-[#ffffff20] px-3 sm:px-6 py-2 sm:py-3 text-white flex items-center gap-2 sm:gap-3 scale-75 sm:scale-90 md:scale-100 origin-top-right"
+            >
+              <option value="4-3-3" class="text-black">4-3-3</option>
+              <option value="4-4-2" class="text-black">4-4-2</option>
+            </select>
+            <div
+              id="pitch-chemistry"
+              class="absolute top-2 sm:top-4 right-2 sm:right-4 bg-white/10 backdrop-blur-md rounded-lg sm:rounded-xl border border-[#ffffff20] px-3 sm:px-6 py-2 sm:py-3 text-white flex items-center gap-2 sm:gap-3 scale-75 sm:scale-90 md:scale-100 origin-top-right"
+            >
+              <div class="flex flex-col items-end">
+                <span
+                  class="text-[10px] sm:text-xs uppercase tracking-wider opacity-60"
+                  >Team Chemistry</span
+                >
+                <div class="flex items-center gap-1">
+                  <span class="text-lg sm:text-xl font-bold">58</span>
+                  <span class="opacity-60 text-sm sm:text-base">/</span>
+                  <span class="opacity-60 text-sm sm:text-base">198</span>
+                </div>
+              </div>
+              <div class="w-px h-6 sm:h-8 bg-white/20"></div>
+              <span
+                class="material-symbols-outlined text-[#4CAF50] text-base sm:text-2xl"
+                >experiment</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="js/formation.js"></script>
     <script src="js/card.js"></script>
     <script src="js/player.js"></script>
     <script src="js/field.js"></script>
+    <script src="js/chemistry.js"></script>
     <script src="js/form.js"></script>
     <script src="js/selectPlayer.js"></script>
     <script src="js/managePlayer.js"></script>
-</body>
-
+  </body>
 </html>
