@@ -75,6 +75,7 @@ function createPlayerObjectFromForm() {
   const firstName = document.getElementById("first-name").value.trim();
   const lastName = document.getElementById("last-name").value.trim();
   const position = document.getElementById("position-select").value;
+  const league = document.getElementById("league-select").value;
 
   const skillInputs = document.querySelectorAll("#skills-inputs input");
   const skills = [];
@@ -101,6 +102,7 @@ function createPlayerObjectFromForm() {
     firstName,
     lastName,
     position,
+    league,
     skills,
     rating: overallRating,
     nationality: selectedCountryName,

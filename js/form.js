@@ -77,13 +77,14 @@ document.addEventListener("DOMContentLoaded", () => {
     addPlayerPopup.classList.add("hidden");
     document.querySelector("#add-player-form form").reset();
     resetPreview();
-    
+
     // hadi fash ndiro cancel khas dik save player mtb9ash ila hllina form again ghatban wkha mnkonosh bghyin editiw
-    addPlayerPopup.querySelector('h2').textContent = 'Add New Player';
-    addPlayerPopup.querySelector('button[type="submit"]').textContent = 'Add Player';
-    
+    addPlayerPopup.querySelector("h2").textContent = "Add New Player";
+    addPlayerPopup.querySelector('button[type="submit"]').textContent =
+      "Add Player";
+
     const form = document.querySelector("#add-player-form form");
-    form.dataset.editMode = 'false';
+    form.dataset.editMode = "false";
     delete form.dataset.editId;
   });
 
@@ -92,32 +93,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
   playerForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    if (validatePlayerForm() && playerForm.dataset.editMode === 'false') {
+    if (validatePlayerForm()) {
       const playerData = createPlayerObjectFromForm();
-      const isEditing = playerForm.dataset.editMode === 'true';
-      
+      const isEditing = playerForm.dataset.editMode === "true";
+
       const players = JSON.parse(localStorage.getItem("players")) || [];
-      
+
       if (isEditing) {
-        const index = players.findIndex(p => p.id === playerData.id);
+        const index = players.findIndex(
+          (p) => p.id === parseInt(playerForm.dataset.editId)
+        );
         if (index !== -1) {
           players[index] = playerData;
+          if (selectedPlayer && selectedPlayer.id === playerData.id) {
+            selectPlayer(playerData);
+          }
         }
       } else {
         players.push(playerData);
       }
-      
+
       localStorage.setItem("players", JSON.stringify(players));
+
+      window.players = players;
+
+      displayPlayers(players);
+      // bghit ngol selected player
+      updatePlayerDisplay();
 
       playerForm.reset();
       resetPreview();
-      
+
       document.getElementById("add-player-popup").classList.add("hidden");
-      
-      playerForm.dataset.editMode = 'false';
+
+      playerForm.dataset.editMode = "false";
       delete playerForm.dataset.editId;
-      
-      displayPlayers();
     }
   });
 });
@@ -219,7 +229,7 @@ function validatePlayerForm(debug = false) {
   const club = document.getElementById("club-image").value;
   const countryName = document.getElementById("country-name").value;
   const clubName = document.getElementById("club-name").value;
-  
+
   let skills = [];
   if (position) {
     skills = Array.from(document.querySelectorAll(".skill-input"));
@@ -245,14 +255,18 @@ function validatePlayerForm(debug = false) {
     document.getElementById("position-select").classList.add("border-red-500");
     isValid = false;
   } else {
-    document.getElementById("position-select").classList.remove("border-red-500");
+    document
+      .getElementById("position-select")
+      .classList.remove("border-red-500");
   }
 
   if (!overallRating) {
     document.getElementById("overall-rating").classList.add("border-red-500");
     isValid = false;
   } else {
-    document.getElementById("overall-rating").classList.remove("border-red-500");
+    document
+      .getElementById("overall-rating")
+      .classList.remove("border-red-500");
   }
 
   if (!playerImage) {
