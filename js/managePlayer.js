@@ -98,7 +98,7 @@ function deletePlayer(playerId) {
     players = players.filter((p) => p.id !== parseInt(playerId));
 
     localStorage.setItem("players", JSON.stringify(players));
-    players = players;
+    window.players = players;
 
     selectedPlayer = null;
     updatePlayerDisplay();
