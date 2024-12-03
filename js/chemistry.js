@@ -35,8 +35,7 @@ function calculatePlayerChemistryLeague(formation, fieldPlayer, fieldPlayers) {
         return 0;
     }
 
-    console.log('adjacent players', adjacentPlayers);
-    
+
     const leagueLinks = adjacentPlayers.filter(ap => ap.player.league === playerLeague).length;
     return Math.min(leagueLinks, 2) * 2;
 }
@@ -52,17 +51,13 @@ function calculatePlayersChemistry(formation, fieldPlayers) {
     }
     return fieldPlayers.reduce((total, fieldPlayer) => {
         const position = calculatePlayerChemistryPsition(formation, fieldPlayer);
-        console.log('for player', fieldPlayer.player.firstName, fieldPlayer.player.lastName, 'position', position);
-        
+
         const club = calculatePlayerChemistryClub(fieldPlayer, fieldPlayers);
-        console.log('for player', fieldPlayer.player.firstName, fieldPlayer.player.lastName, 'club', club);
-        
+
         const league = calculatePlayerChemistryLeague(formation, fieldPlayer, fieldPlayers);
-        console.log('for player', fieldPlayer.player.firstName, fieldPlayer.player.lastName, 'league', league);
-        
+
         const nationality = calculatePlayerChemistryNationality(fieldPlayer, fieldPlayers);
-        console.log('for player', fieldPlayer.player.firstName, fieldPlayer.player.lastName, 'nationality', nationality);
-        
+
         return total + position + club + league + nationality;
     }, 0);
 }

@@ -59,11 +59,8 @@ function openEditForm(player) {
       return false;
     }
 
-    console.log("Form validation passed");
     const updatedPlayer = createPlayerObjectFromForm();
-    console.log("Updated player:", updatedPlayer);
 
-    // Update localStorage
     let players = JSON.parse(localStorage.getItem("players")) || [];
     const index = players.findIndex((p) => p.id === parseInt(form.dataset.editId));
 

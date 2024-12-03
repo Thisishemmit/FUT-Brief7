@@ -67,6 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
         substituteModal.classList.add('hidden');
         clickedFieldCard = null;
     });
+
+    updateChemistryDisplay();
 });
 
 
@@ -129,13 +131,14 @@ function updateCardsPosition(formationId) {
 
         }
     });
+
+    updateChemistryDisplay();
 }
 window.addEventListener('keydown', (e) => {
     if (e.key === 'l') {
         let frmtn = formations.find(f => f.formation === currentFormation);
         let chem = calculatePlayersChemistry(frmtn, fieldPlayers);
-        console.log(chem);
-    }
+
 });
 function showSubstituteModal(position) {
     const substituteModal = document.getElementById('substitute-players');
@@ -190,6 +193,7 @@ function substitutePlayer(newPlayer) {
         fieldPlayers.push({ cardId: clickedFieldCard, player: newPlayer });
 
         localStorage.setItem('fieldPlayers', JSON.stringify(fieldPlayers));
+        updateChemistryDisplay();
 
         const pos = formations.find(f => f.formation === currentFormation).prototype[clickedFieldCard].pos;
         card.innerHTML += `
@@ -214,4 +218,14 @@ function clearFieldPlayer(cardIndex) {
 
     fieldPlayers = fieldPlayers.filter(fp => fp.cardId !== cardIndex);
     localStorage.setItem('fieldPlayers', JSON.stringify(fieldPlayers));
+    updateChemistryDisplay();
+}
+
+function updateChemistryDisplay() {
+    const chemistryDisplay = document.getElementById('pitch-chemistry');
+    const formation = formations.find(f => f.formation === currentFormation);
+    const currentChemistry = calculatePlayersChemistry(formation, fieldPlayers);
+
+    const chemistryValue = chemistryDisplay.querySelector('.text-lg');
+    chemistryValue.textContent = currentChemistry;
 }
