@@ -16,7 +16,19 @@ const formations = [
             { pos: 'CB', x: 60, y: 75 },
             { pos: 'RB', x: 80, y: 70 },
             { pos: 'GK', x: 50, y: 95 }
+        ],
+
+        //represents array of indexes of players that are close to each other
+        links: [
+            [1, 5, 4],
+            [3, 2, 0],
+            [1, 0],
+            [4, 5, 9, 8],
+            [3, 2, 6, 7],
+            [8, 10, 7],
+            [3, 4, 5]
         ]
+
     },
     {
         formation: "4-3-3",
@@ -32,7 +44,17 @@ const formations = [
             { pos: 'CB', x: 60, y: 75 },
             { pos: 'RB', x: 85, y: 70 },
             { pos: 'GK', x: 50, y: 95 }
+        ],
+        links: [
+            [1, 0, 2],
+            [0, 3, 1],
+            [4, 3, 5],
+            [5, 2, 9],
+            [5, 9, 8, 4],
+            [3, 4, 7, 6],
+            [7, 10, 8]
         ]
+
     }
 
 ];
@@ -55,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function updateCardsPosition(formationId) {
     localStorage.setItem('currentFormation', formationId);
     currentFormation = formationId;
-    
+
     let cards = document.querySelectorAll('.field-card');
     let formation = formations.find(f => f.formation === formationId);
 
@@ -97,20 +119,31 @@ function updateCardsPosition(formationId) {
                 clickedFieldCard = index;
                 showSubstituteModal(position.pos);
             });
+            // card.addEventListener('mouseenter', () => {
+            //     console.log('node index', index);
+            // });
             card.addEventListener('contextmenu', (e) => {
                 e.preventDefault();
                 clearFieldPlayer(index);
             });
+
         }
     });
 }
-
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'l') {
+        let frmtn = formations.find(f => f.formation === currentFormation);
+        let chem = calculatePlayersChemistry(frmtn, fieldPlayers);
+        console.log(chem);
+    }
+});
 function showSubstituteModal(position) {
     const substituteModal = document.getElementById('substitute-players');
     const substituteDisplay = document.getElementById('substitute-players-display');
 
     substituteDisplay.innerHTML = '';
 
+    let players = JSON.parse(localStorage.getItem('players')) || [];
     const substitutes = players.filter(player => player.position === position && !fieldPlayers.find(fp => fp.player.id === player.id));
 
     substitutes.forEach(substitute => {
@@ -154,8 +187,8 @@ function substitutePlayer(newPlayer) {
         );
 
         fieldPlayers = fieldPlayers.filter(fp => fp.cardId !== clickedFieldCard);
-        fieldPlayers.push({cardId: clickedFieldCard, player: newPlayer});
-        
+        fieldPlayers.push({ cardId: clickedFieldCard, player: newPlayer });
+
         localStorage.setItem('fieldPlayers', JSON.stringify(fieldPlayers));
 
         const pos = formations.find(f => f.formation === currentFormation).prototype[clickedFieldCard].pos;
@@ -171,14 +204,14 @@ function clearFieldPlayer(cardIndex) {
     const card = document.querySelectorAll('.field-card')[cardIndex];
     card.innerHTML = '';
     card.appendChild(createPlayerCard(fieldPlayerCardConfig, true, null, null));
-    
+
     const pos = formations.find(f => f.formation === currentFormation).prototype[cardIndex].pos;
     card.innerHTML += `
         <div class="absolute lg:-bottom-14 md:-bottom-14 -bottom-10 card-prototype-position">
             <span class="text-[11px] text-[#2C2C2C] font-semibold bg-[#ffffff80] -translate-x-1/2 px-2 py-0.5 rounded-full shadow-sm">${pos}</span>
         </div>
     `;
-    
+
     fieldPlayers = fieldPlayers.filter(fp => fp.cardId !== cardIndex);
     localStorage.setItem('fieldPlayers', JSON.stringify(fieldPlayers));
 }
