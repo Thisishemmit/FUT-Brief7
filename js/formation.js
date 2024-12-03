@@ -138,7 +138,7 @@ window.addEventListener('keydown', (e) => {
     if (e.key === 'l') {
         let frmtn = formations.find(f => f.formation === currentFormation);
         let chem = calculatePlayersChemistry(frmtn, fieldPlayers);
-
+    }
 });
 function showSubstituteModal(position) {
     const substituteModal = document.getElementById('substitute-players');
