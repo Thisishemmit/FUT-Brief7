@@ -237,7 +237,7 @@ function validatePlayerForm(debug = false) {
 
   let isValid = true;
 
-  if (!firstName) {
+  if (!firstName  || firstName.length > 10) {
     document.getElementById("first-name").classList.add("border-red-500");
     isValid = false;
   } else {
